@@ -15,13 +15,12 @@ function Contacts() {
 
     console.log(contactList)
     return  contactList.filter(contact =>
-      // console.log(contact.name)
+
       contact.name.toLowerCase().includes(normalizeFilter)
       
     );
   };
 
-// const contacts = useSelector(state=>state.items.items)
 
  
 return (

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { addNewContact,getContacts } from '../redux/itemsSlice';
 
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import s from './Form.module.css';
@@ -15,7 +15,7 @@ function Form() {
 
   const [name, setName] = useState('');
   const [ phone, setPhone] = useState('');
-  const [id, setId] = useState('');
+
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -42,9 +42,9 @@ function Form() {
     setPhone('');
   };
 
-  useEffect(() => {
-    return setId(nanoid());
-  }, [name,  phone]);
+  // useEffect(() => {
+  //   return setId(nanoid());
+  // }, [name,  phone]);
 
   useEffect(()=>{
    dispatch(getContacts())

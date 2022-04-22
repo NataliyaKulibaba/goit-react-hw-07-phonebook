@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-// import { nanoid } from 'nanoid';
+
 
 export const getContacts = createAsyncThunk(
   'items /getContacts',
@@ -42,7 +42,7 @@ export const addNewContact = createAsyncThunk(
       const data = await response.json();
       console.log(data);
       dispatch(add(data));
-      // return data;
+
     } catch (error) {
       return rejectWithValue(error.message);
     }
