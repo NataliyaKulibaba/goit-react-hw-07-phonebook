@@ -9,21 +9,19 @@ form {
   margin-bottom: 10px;
   align-items: center;
   justify-content: center;
-  /* margin: 0 auto; */
 }
 
 input {
- 
+  width: 400px;
   border-radius: 5px;
   height: 30px;
 }
 
 .btmAdd {
-  /* margin: 0 auto; */
   padding: 10px 49px;
   border-radius: 5px;
-  background-color: rgb(89, 158, 238);
-  color: #fff;
+  background-color: rgb(247, 223, 46);
+  color: #000;
   height: 40px;
 
   transform: scale(1);
@@ -33,5 +31,5 @@ input {
 .btmAdd:hover,
 .btmAdd:focus {
   transform: scale(1.05);
-  background-color: rgb(136, 226, 176);
+  background-color: rgb(15, 101, 15);
 }

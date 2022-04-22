@@ -1,10 +1,10 @@
 body{
-  background-color: #80808012;
+  background-color: #011378fa;;
 }
 .contactLict {
   display: flex;
   flex-wrap: wrap;
-  width: 320px;
+  width: 400px;
   margin: 0 auto;
   padding-inline-start: 0;
 }
@@ -12,18 +12,19 @@ body{
 .contactLictItem {
   list-style-type: none;
   margin-top: 10px;
-  /* padding: 10px; */
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 320px;
+  width: 400px;
+  color:#fff;
 }
 
 .btnDel {
   padding: 5px 20px;
   border-radius: 5px;
-  background-color: rgb(89, 158, 238);
-  color: #fff;
+  background-color: rgb(247, 223, 46);
+  color: #000;
 }
 
 .btnDel:hover,

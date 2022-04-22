@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-
 export const getContacts = createAsyncThunk(
   'items /getContacts',
   async function (_, { rejectWithValue }) {
@@ -22,9 +21,6 @@ export const getContacts = createAsyncThunk(
 export const addNewContact = createAsyncThunk(
   'items/addNewContact',
   async function (newContact, { rejectWithValue, dispatch }) {
-    console.log(newContact);
-    console.log(newContact.name);
-    console.log(newContact.phone);
     try {
       const response = await fetch(
         'https://625d432895cd5855d61dffee.mockapi.io/api/v1/contacts',
@@ -40,9 +36,7 @@ export const addNewContact = createAsyncThunk(
         throw new Error('Oh my God! It is ERROR! You can not add contact');
       }
       const data = await response.json();
-      console.log(data);
       dispatch(add(data));
-
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -52,7 +46,6 @@ export const addNewContact = createAsyncThunk(
 export const deleteContact = createAsyncThunk(
   'items/deleteContact',
   async function (id, { rejectWithValue, dispatch }) {
-    console.log(id)
     try {
       const response = await fetch(
         `https://625d432895cd5855d61dffee.mockapi.io/api/v1/contacts/${id}`,
@@ -60,7 +53,7 @@ export const deleteContact = createAsyncThunk(
       );
 
       if (!response.ok) {
-        throw new Error("Something wrong. Server error!");
+        throw new Error('Something wrong. Server error!');
       }
 
       dispatch(remove({ id }));
@@ -70,10 +63,12 @@ export const deleteContact = createAsyncThunk(
   }
 );
 
+
 const setError = (state, action) => {
   state.status = 'rejected';
   state.error = action.payload;
 };
+
 
 export const itemsSlice = createSlice({
   name: 'items ',
@@ -84,14 +79,10 @@ export const itemsSlice = createSlice({
   },
   reducers: {
     add(state, action) {
-      console.log(state);
-      console.log(state.items);
       state.items.push(action.payload);
     },
     remove(state, action) {
-      console.log(state);
-      console.log(state.items);
-      return state.items.filter(item => item.id !== action.payload.id);
+      state.items = state.items.filter(item => item.id !== action.payload.id);
     },
   },
   extraReducers: {

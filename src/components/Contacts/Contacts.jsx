@@ -1,29 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import s from './Contacts.module.css';
-import { useDispatch,useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from '../redux/itemsSlice';
 
 function Contacts() {
   const dispatch = useDispatch();
-  const contactList = useSelector(state=>state.items.items)
-  const filter = useSelector(state=>state.filter)
-  console.log(filter)
+  const contactList = useSelector(state => state.items.items);
+  const filter = useSelector(state => state.filter);
 
   const getVisibleContacts = () => {
     const normalizeFilter = filter.toLowerCase();
 
-    console.log(contactList)
-    return  contactList.filter(contact =>
-
+    return contactList.filter(contact =>
       contact.name.toLowerCase().includes(normalizeFilter)
-      
     );
   };
 
-
- 
-return (
+  return (
     <ul className={s.contactLict}>
       {getVisibleContacts().map(({ name, phone, id }) => (
         <li key={id} className={s.contactLictItem}>
